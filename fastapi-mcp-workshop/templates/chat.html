@@ -1,0 +1,24 @@
+<!-- templates/chat.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MCPチャット</title>
+</head>
+<body>
+    <h1>MCPチャット（セッション付き）</h1>
+    <form method="post">
+        <label>セッションID（空でもOK）：</label>
+        <input type="text" name="session_id" value="{{ session_id or '' }}"><br><br>
+        <label>メッセージ：</label>
+        <input type="text" name="content" required>
+        <button type="submit">送信</button>
+    </form>
+    
+    {% if response %}
+        <p><strong>返事：</strong> {{ response }}</p>
+        <p><strong>現在のセッションID：</strong> {{ session_id }}</p>
+        <p>※ これをコピーして次回以降に貼れば文脈が続く！</p>
+    {% endif %}
+    
+</body>
+</html>
